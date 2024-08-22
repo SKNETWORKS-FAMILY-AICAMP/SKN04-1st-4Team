@@ -4,10 +4,167 @@ import datetime
 import pandas as pd
 import folium
 
-# 페이지 선택기
-page = st.sidebar.selectbox("Choose a page", ["Page 1", "Page 2"])
+import psycopg2
+import plotly.express as px
+import random
+import plotly.graph_objects as go
 
-if page == "Page 1":
+# 페이지 선택기
+page = st.sidebar.selectbox("Choose a page", ["막대그래프", "지도"])
+
+if page == "막대그래프": 
+    def fetch_total_sum_data():
+        try:
+            # PostgreSQL 데이터베이스에 연결
+            conn = psycopg2.connect(
+                host='0.0.0.0',
+                dbname='postgres',
+                user='postgres',
+                password='qksrkqek12',
+                port=8874
+            )
+
+            # SQL 쿼리 실행
+            query = """
+            SELECT ts.year_id, y.year_value, ts.total_registration
+            FROM project1.total_sum ts 
+            JOIN project1.year y ON ts.year_id = y.year_id
+            ORDER BY ts.year_id
+            """
+            df = pd.read_sql(query, conn)
+            
+            return df
+
+        except psycopg2.Error as e:
+            print(f"Database error: {e}")
+            return None
+
+        finally:
+            if conn:
+                conn.close()
+                
+
+
+    def fetch_region_year_data(region_name):
+        try:
+            # PostgreSQL 데이터베이스에 연결
+            conn = psycopg2.connect(
+                host='0.0.0.0',
+                dbname='postgres',
+                user='postgres',
+                password='qksrkqek12',
+                port=8874
+            )
+
+            # SQL 쿼리 실행
+            query = """
+            SELECT y.year_value, SUM(CAST(rg.registration_val AS NUMERIC)) AS total_registration
+            FROM project1.registrations rg
+            JOIN project1.year y ON rg.year_id = y.year_id
+            JOIN project1.region r ON rg.region_id = r.region_id
+            WHERE r.region_name = %s
+            GROUP BY y.year_value
+            ORDER BY y.year_value
+            """
+            df = pd.read_sql(query, conn, params=(region_name,))
+            
+            return df
+
+        except psycopg2.Error as e:
+            print(f"Database error: {e}")
+            return None
+
+        finally:
+            if conn:
+                conn.close()
+
+
+############################################################################################################
+# PostgreSQL에서 연도별 총 합 가져오기 
+total_sum_df = fetch_total_sum_data()
+st.title("연도별 전국 자동차 등록 현황 ")
+# 데이터가 정상적으로 가져와졌는지 확인
+if total_sum_df is not None:
+    
+    whole_data = total_sum_df['total_registration']
+    
+    # 회사 지분을 나타내는 임의의 데이터
+    custom_data = [int(y_val * (random.uniform(0.1, 0.3))) for y_val in whole_data]
+
+    fig = go.Figure()
+    
+    fig.add_trace(go.Bar(
+        x = total_sum_df['year_value'],
+        y = whole_data,
+        name = '총 등록 대수',
+        marker_color = 'lightblue'
+    ))
+    
+    fig.add_trace(go.Bar(
+        x = total_sum_df['year_value'],
+        y = custom_data,
+        name = '엔코 차 등록 수',
+        marker_color = 'lightpink'
+    ))
+    
+    fig.update_xaxes(tickmode='linear', dtick=1)
+    fig.update_layout(
+        barmode='overlay', 
+        title="연도별 전국 자동차 등록 대수와 엔코사 자동차 등록 대수 비교",
+        xaxis_title="연도",
+        yaxis_title="합계(단위: 만대)",
+        legend_title="데이터 종류"
+    )
+
+    # Streamlit에서 차트 표시
+    st.plotly_chart(fig)
+
+
+else:
+    st.error("Failed to load data from the database.")
+
+############################################################################################################
+
+# Streamlit 앱 시작
+st.title("지역별 연도별 자동차 등록 현황 검색")
+
+# 사용자 입력 (검색 키워드)
+keyword = st.text_input("연도별 등록 현황을 알고 싶은 지역 이름을 입력하세요:", "")
+
+# 검색 가능한 지역 목록
+valid_regions = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "세종", "경기",
+                 "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"]
+
+
+if keyword in valid_regions:
+    # 데이터베이스에서 해당 지역의 데이터를 가져오기
+    region_year_df = fetch_region_year_data(keyword)
+
+    if region_year_df is not None and not region_year_df.empty:
+        # Plotly를 사용한 그래프 생성
+        fig = px.bar(region_year_df, x='year_value', y='total_registration', 
+                     labels={'year_value': '연도', 'total_registration': '합계(단위: 만대)'},
+                     title=f"{keyword} 지역의 연도별 자동차 등록 현황",
+                     color_discrete_sequence=['#1f77b4'])
+        fig.update_xaxes(tickmode='linear', dtick=1)
+
+        # Streamlit에서 차트 표시
+        st.plotly_chart(fig)
+    else:
+        st.warning(f"{keyword} 지역에 대한 데이터를 찾을 수 없습니다.")
+else:
+    if keyword:
+        st.error("검색 가능한 지역이 아닙니다. 올바른 지역 이름을 입력하세요.")
+
+
+
+
+
+
+
+
+
+if page == "지도":
     st.title("Page 1")
     st.write("This is the content of Page 1")
     # 여기에 페이지 1의 내용을 추가합니다.

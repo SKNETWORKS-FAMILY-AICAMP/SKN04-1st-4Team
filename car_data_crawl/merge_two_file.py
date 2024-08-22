@@ -18,7 +18,7 @@ prev_data_df.index = index_values
 prev_data_df = prev_data_df.drop(prev_data_df.columns[0], axis=1)
 
 
-latest_data_path = glob.glob('*시도별*.xlsx')
+latest_data_path = glob.glob('./*_시도별_*.xlsx')
 latest_data_df = pd.read_excel(latest_data_path[0])
 
 # 나중에 인덱스로 사용할 합계, 지역명들은 따로 저장 

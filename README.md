@@ -12,9 +12,10 @@
 </p>
 
 <div align="center">
-|   &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; 🐰오정연  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;    |      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐱김현재  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;    |      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐹권오셈  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;    |     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐶오종수  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;   | 
-|------------------------------------------|--------------------------------------|------------------------------------------|-----------------------------------|	
-
+	
+|🐰오정연 |🐱김현재|🐹권오셈|🐶오종수|
+|:-------:|:-------:|:-------:|:-------:|
+|[Jungyunn](https://github.com/Jungyunn)|[97now](https://github.com/97now)|[Kwonohs](https://github.com/Kwonohs)|[Quliy303](https://github.com/Quliy303)|
 </div>
 
 <hr>
@@ -42,10 +43,20 @@
 <img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/%EA%B8%B0%EC%88%A0%EC%8A%A4%ED%83%9D.png">
 
 * Prerequisites
+```cmd
+pip install -r requirements.txt
+```
   	
 * Usage
-	1. car_data_crawl 경로에서 `python run_all_scripts.py`
-	2. streamlit 경로에서 `streamlit run CompanyProfile.py`
+1. car_data_crawl 경로에서 <br>
+```cmd
+    python run_all_scripts.py
+```
+
+2. streamlit 경로에서 <br>
+```cmd
+ 	streamlit run CompanyProfile.py
+```
 </div>
 
 <hr>

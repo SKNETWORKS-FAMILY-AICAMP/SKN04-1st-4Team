@@ -8,7 +8,7 @@ data = pd.read_csv('./merged_file.csv').rename(columns={'Unnamed: 0':'지역'})
 # 데이터베이스에 연결
 try:
     with psycopg2.connect(
-        host='0.0.0.0',
+        host='192.168.0.87',
         dbname='postgres',
         user='postgres',
         password='qksrkqek12',
@@ -41,7 +41,7 @@ except Exception as e:
 # 데이터베이스에 연결
 try:
     with psycopg2.connect(
-        host='0.0.0.0',
+        host='192.168.0.87',
         dbname='postgres',
         user='postgres',
         password='qksrkqek12',
@@ -75,7 +75,7 @@ wo_total = data.drop(index=0)
 # 데이터베이스에 연결
 try:
     with psycopg2.connect(
-        host='0.0.0.0',
+        host='192.168.0.87',
         dbname='postgres',
         user='postgres',
         password='qksrkqek12',
@@ -111,7 +111,7 @@ total_df = data.loc[0]
 # 데이터베이스에 연결
 try:
     with psycopg2.connect(
-        host='0.0.0.0',
+        host='192.168.0.87',
         dbname='postgres',
         user='postgres',
         password='qksrkqek12',

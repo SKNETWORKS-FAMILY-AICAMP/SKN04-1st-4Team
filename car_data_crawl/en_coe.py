@@ -41,8 +41,6 @@ for i in [2,3,5]:
             title.append(driver.find_element(By.XPATH, f'/html/body/main/adv-grid[5]/adv-col/div/div[{j}]/div/div[1]/h6').text.replace('[통합계정]', '').strip())
         images.append(None)
 
-driver.quit()
-
 for i in range(len(images)):
     with psycopg2.connect(
         host='192.168.0.87',
@@ -52,4 +50,4 @@ for i in range(len(images)):
             port=8874
         )as conn:
             with conn.cursor() as cur:
-                cur.execute(f'''INSERT INTO project1.faq VALUES ('en_coe', '{title[i]}', '{category[i]}', '{images[i]}', '{text_[i]}')''')
+                cur.execute(f'''INSERT INTO project1.faq VALUES ('en_coe', '{title[i]}', '{category[i]}', '{images[i]}', '{text[i]}')''')

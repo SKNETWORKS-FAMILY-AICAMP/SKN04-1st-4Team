@@ -63,12 +63,12 @@
 <p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/3%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
 3. 데이터 분석 (지도)
-<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/4%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png1"></p>
+<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/4%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
     3.1 검색 후 지도 출력
-<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/5%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png1"></p>
+<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/5%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
 4. FAQ 
-<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/6%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png1"></p>
+<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/6%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
     4.1 FAQ 기본 화면
-<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/7%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png1"></p>
+<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/7%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>

@@ -1,48 +1,52 @@
-import streamlit as st # streamlit은 st로 줄여서 쓴다.
-import time
-import datetime
+# pip install psycopg2
 
-st.title('FAQ', help="what is it?")
+import psycopg2
+import streamlit as st
+import pandas as pd
+import numpy as np
 
-# FAQ 데이터
-faq_data_kia = {
-    "Q1: 서비스는 어떻게 이용하나요?": "서비스를 이용하시려면 웹사이트에 가입 후 로그인 하시고, 원하는 서비스를 선택하여 사용하실 수 있습니다.",
-    "Q2: 고객 지원은 어떻게 받나요?": "고객 지원은 이메일이나 전화로 요청하실 수 있으며, 웹사이트의 '고객 지원' 페이지에서 자세한 정보를 확인하실 수 있습니다.",
-    "Q3: 제품의 보증 기간은 얼마나 되나요?": "제품의 보증 기간은 구매일로부터 1년입니다. 자세한 보증 조건은 제품 설명서나 웹사이트에서 확인하실 수 있습니다.",
-    "Q4: 반품 및 환불 정책은 어떻게 되나요?": "반품 및 환불 정책은 제품 구매 후 30일 이내에 요청하셔야 하며, 제품의 상태에 따라 다를 수 있습니다. 자세한 사항은 웹사이트의 '반품 및 환불 정책'을 참조하십시오.",
-    "Q5: 회사의 위치는 어디인가요?": "회사는 서울특별시에 위치하고 있으며, 주소는 웹사이트의 '연락처' 페이지에서 확인하실 수 있습니다.",
-    "Q6: 서비스는 어떻게 이용하나요?": "서비스를 이용하시려면 웹사이트에 가입 후 로그인 하시고, 원하는 서비스를 선택하여 사용하실 수 있습니다.",
-    "Q7: 고객 지원은 어떻게 받나요?": "고객 지원은 이메일이나 전화로 요청하실 수 있으며, 웹사이트의 '고객 지원' 페이지에서 자세한 정보를 확인하실 수 있습니다.",
-}
+import requests
+from PIL import Image
+from io import BytesIO
+import IPython.display as display
+import json
 
-faq_data_hyundae = {
-    "Q8: 제품의 보증 기간은 얼마나 되나요?": "제품의 보증 기간은 구매일로부터 1년입니다. 자세한 보증 조건은 제품 설명서나 웹사이트에서 확인하실 수 있습니다.",
-    "Q9: 반품 및 환불 정책은 어떻게 되나요?": "반품 및 환불 정책은 제품 구매 후 30일 이내에 요청하셔야 하며, 제품의 상태에 따라 다를 수 있습니다. 자세한 사항은 웹사이트의 '반품 및 환불 정책'을 참조하십시오.",
-    "Q10: 회사의 위치는 어디인가요?": "회사는 서울특별시에 위치하고 있으며, 주소는 웹사이트의 '연락처' 페이지에서 확인하실 수 있습니다.",
-    "Q11: 서비스는 어떻게 이용하나요?": "서비스를 이용하시려면 웹사이트에 가입 후 로그인 하시고, 원하는 서비스를 선택하여 사용하실 수 있습니다.",
-    "Q12: 고객 지원은 어떻게 받나요?": "고객 지원은 이메일이나 전화로 요청하실 수 있으며, 웹사이트의 '고객 지원' 페이지에서 자세한 정보를 확인하실 수 있습니다.",
-    "Q13: 제품의 보증 기간은 얼마나 되나요?": "제품의 보증 기간은 구매일로부터 1년입니다. 자세한 보증 조건은 제품 설명서나 웹사이트에서 확인하실 수 있습니다.",
-    "Q14: 반품 및 환불 정책은 어떻게 되나요?": "반품 및 환불 정책은 제품 구매 후 30일 이내에 요청하셔야 하며, 제품의 상태에 따라 다를 수 있습니다. 자세한 사항은 웹사이트의 '반품 및 환불 정책'을 참조하십시오."
-}
+with psycopg2.connect(
+    host='192.168.0.87',
+    dbname='postgres',
+    user='postgres',
+    password='qksrkqek12',
+    port=8874
+    )as conn:
+        with conn.cursor() as cur:
+                cur.execute('SELECT * FROM project1.faq;')
+                result_one = cur.fetchone() # READ
+                result_many = cur.fetchmany() 
+                result_all = cur.fetchall()
 
-faq_data_encoe = {
-    "Q8: 제품의 보증 기간은 얼마나 되나요?": "제품의 보증 기간은 구매일로부터 1년입니다. 자세한 보증 조건은 제품 설명서나 웹사이트에서 확인하실 수 있습니다.",
-    "Q9: 반품 및 환불 정책은 어떻게 되나요?": "반품 및 환불 정책은 제품 구매 후 30일 이내에 요청하셔야 하며, 제품의 상태에 따라 다를 수 있습니다. 자세한 사항은 웹사이트의 '반품 및 환불 정책'을 참조하십시오.",
-    "Q10: 회사의 위치는 어디인가요?": "회사는 서울특별시에 위치하고 있으며, 주소는 웹사이트의 '연락처' 페이지에서 확인하실 수 있습니다.",
-    "Q11: 서비스는 어떻게 이용하나요?": "서비스를 이용하시려면 웹사이트에 가입 후 로그인 하시고, 원하는 서비스를 선택하여 사용하실 수 있습니다.",
-    "Q12: 고객 지원은 어떻게 받나요?": "고객 지원은 이메일이나 전화로 요청하실 수 있으며, 웹사이트의 '고객 지원' 페이지에서 자세한 정보를 확인하실 수 있습니다.",
-    "Q13: 제품의 보증 기간은 얼마나 되나요?": "제품의 보증 기간은 구매일로부터 1년입니다. 자세한 보증 조건은 제품 설명서나 웹사이트에서 확인하실 수 있습니다.",
-    "Q14: 반품 및 환불 정책은 어떻게 되나요?": "반품 및 환불 정책은 제품 구매 후 30일 이내에 요청하셔야 하며, 제품의 상태에 따라 다를 수 있습니다. 자세한 사항은 웹사이트의 '반품 및 환불 정책'을 참조하십시오."
-}
-tab1, tab2, tab3 = st.tabs(['kia', 'Hyundae', 'en_coe'])
 
-with tab1:
-    for question, answer in faq_data_kia.items():
-        st.expander(question, expanded=False).write(answer)
-with tab2:
-    for question, answer in faq_data_hyundae.items():
-        st.expander(question, expanded=False).write(answer)
-with tab3:
-    for question, answer in faq_data_encoe.items():
-        st.expander(question, expanded=False).write(answer)
-# FAQ 표시
+result_one = [result_one]
+result_all = list(result_all)
+result_one.extend(result_many)
+result_one.extend(result_all)
+result_all = result_one
+
+st.title('FAQ')
+
+tab1, tab2 = st.tabs(['Kia', 'En_coe'])
+num1, num2 = 0, 0
+for i in range(60):
+    if result_all[i][0] == 'kia':
+        num1 += 1
+        with tab1:
+            expander = st.expander(f"Q.{num1}\t" + result_all[i][1])
+            expander.write(result_all[i][4])
+            if result_all[i][3] != 'None':
+                expander.image(result_all[i][3])
+    else:
+        num2 += 1
+        with tab2:
+            expander = st.expander(f"Q.{num2}\t" + result_all[i][1])
+            expander.write(result_all[i][4])
+            if result_all[i][3] != 'None':
+                expander.image(result_all[i][3])

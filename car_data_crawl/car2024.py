@@ -72,3 +72,6 @@ driver.find_element(By.XPATH, '/html/body/form[2]/div[5]/div[2]/div[3]/div[1]/di
 time.sleep(1)
 driver.find_element(By.XPATH, '/html/body/form[2]/div[3]/div[4]/div/div[2]/div[3]/span[1]/a').click() # 다운로드 클릭
 time.sleep(10)
+
+
+driver.quit()

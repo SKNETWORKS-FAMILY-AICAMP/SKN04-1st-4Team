@@ -106,6 +106,8 @@ for i in index_:
 
             driver.find_element(By.XPATH, f'/html/body/div[2]/div/div/div[2]/div/div/div[3]/div/div/div[4]/div/ul/li[{h}]/a').click()
 
+driver.quit()
+
 text_ = text[:30]
 images_ = images[:30]
 category_ = category[:30]

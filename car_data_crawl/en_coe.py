@@ -41,6 +41,7 @@ for i in [2,3,5]:
             title.append(driver.find_element(By.XPATH, f'/html/body/main/adv-grid[5]/adv-col/div/div[{j}]/div/div[1]/h6').text.replace('[통합계정]', '').strip())
         images.append(None)
 
+driver.quit()
 
 for i in range(len(images)):
     with psycopg2.connect(

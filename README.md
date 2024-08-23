@@ -12,16 +12,8 @@
 </p>
 
 <div align="center">
-	
-|   &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; 🐰오정연  
-&nbsp;&nbsp;&nbsp;&nbsp;[깃허브주소](https://github.com/Jungyunn)  |     
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐱김현재  
-&nbsp;&nbsp;&nbsp;&nbsp;[깃허브주소](https://github.com/97now)  |      
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐹권오셈  
-&nbsp;&nbsp;&nbsp;&nbsp;[깃허브주소](https://github.com/Kwonohs)  |     
-&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐶오종수  
-&nbsp;&nbsp;&nbsp;&nbsp;[깃허브주소](https://github.com/Quliy303)  |
-|------------------------------------------|--------------------------------------|------------------------------------------|-----------------------------------|
+|   &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp; 🐰오정연  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;    |      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐱김현재  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;    |      &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐹권오셈  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;    |     &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp; 🐶오종수  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;  &nbsp;  &nbsp;   | 
+|------------------------------------------|--------------------------------------|------------------------------------------|-----------------------------------|	
 
 </div>
 
@@ -52,8 +44,8 @@
 * Prerequisites
   	
 * Usage
-	1. car_data_crawl 경로에서 python run_all_scripts.py
-	2. streamlit 경로에서 streamlit run CompanyProfile.py 
+	1. car_data_crawl 경로에서 `python run_all_scripts.py`
+	2. streamlit 경로에서 `streamlit run CompanyProfile.py`
 </div>
 
 <hr>
@@ -66,37 +58,34 @@
 
 ### 주요 기능 및 화면 구성
 
-1)  	회사소개
-2) 	전국 자동차 등록 현황
-	A.   	연도별 전국 자동차 등록 대수와 엔코사 자동차 등록 대수 비교
-	B.   	원하는 지역에 대한 연도별 자동차 등록 현황 검색
-3) 	회사 FAQ
 
 1. 회사 소개
 <p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/1%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
-2. 데이터 분석 (그래프)
+2. 데이터 분석 (그래프) - 연도별 전국 자동차 등록 현황 
 <p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/2%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
-2.1 검색 후 그래프 출력
+2.1 데이터 분석 (그래프) - 입력한 지역을 기준으로 연도별 데이터 시각화
 <p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/3%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
-3. 데이터 분석 (지도)<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/4%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
+3. 데이터 분석 (지도) - 입력한 연도를 기준으로 전국 데이터 시각화
+<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/4%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
-3.1 검색 후 지도 출력
+3.1 데이터 분석 (지도) - 지도 상 지역에 수치를 나타냄
 <p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/5%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
-4. FAQ 
+4. FAQ 기본 화면
+<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/7%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
+
+4-1. FAQ 상세 화면
 <p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/6%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
-4.1 FAQ 기본 화면
-<p align="center"><img src="https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN04-1st-4Team/blob/main/src/7%EB%B2%88%20%ED%99%94%EB%A9%B4%EA%B5%AC%ED%98%84.png"></p>
 
 
 
 ### 한 줄 회고
-오정연: 계획대로 하는것이 제일 어렵구나
-김현재: 주어진 시간안에 최선을 다한것 같아서 뿌듯합니다.Skrr
-권오셈:신나요
-오종수:매일 조금씩, 나아가는 제 모습을 확인했습니다.
+오정연: 계획대로 하는것이 제일 어렵구나 <br>
+김현재: 주어진 시간안에 최선을 다한것 같아서 뿌듯합니다 <br>
+권오셈: 신나요 <br>
+오종수: 매일 조금씩, 나아가는 제 모습을 확인했습니다 <br>
 
